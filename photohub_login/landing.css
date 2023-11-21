@@ -43,7 +43,7 @@ p.welcome {
   color: ghostwhite;
 }
 
-.selection-buttons button {
+.selection-buttons{
   width: 150px;
   height: 50px; 
   font-size: 18px;
@@ -51,4 +51,9 @@ p.welcome {
   margin-top:20px; 
   margin-left: 500px;
   border-radius: 30px;
+}
+
+.photographers{
+  text-decoration: none;
+  cursor: pointer;
 }
