@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiles</title>
+</head>
+<body>
+    <h1>Profiles</h1>
+    <ul>
+        {% for profile in profiles %}
+            <li>{{ profile.name }} - {{ profile.age }} years old - Email: {{ profile.email }}</li>
+        {% endfor %}
+    </ul>
+    <a href="C:\Users\PC\Photo Hub\Photo_Hub-1\Profile_Creation\profile.html">Create a new profile</a>
+</body>
+</html>
