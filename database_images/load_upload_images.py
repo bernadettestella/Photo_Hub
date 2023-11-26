@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, Response, session, send_file
 from flask_mysqldb import MySQL
+import io
+import imghdr
+
 
 app = Flask(__name__)
 
@@ -15,9 +18,19 @@ mysql = MySQL(app)
 def idx():
     cursor = mysql.connection.cursor()
     cursor.execute("USE photohub")
-    cursor.execute("SELECT id FROM photohub.images")
-    imageid = [row[0] for row in cursor.fetchall()]
-    return render_template('load_upload_images.html', imageid=imageid)
+    cursor.execute("SELECT id, image_data FROM photohub.images")
+    images = cursor.fetchall()
+
+    image_data_list = []
+    content_type_list = []
+
+    for image_id, image_data in images:
+        image_type = imghdr.what(None, h=image_data)
+        if image_type:
+            content_type = f'image/{image_type}'
+            content_type_list.append(content_type)
+            image_data_list.append((image_id, content_type))
+    return render_template('load_upload_images.html', images=image_data_list, content_types=content_type_list)
 
 
 
@@ -37,13 +50,19 @@ def upload():
 
 
 @app.route('/image/<int:image_id>')
-def get_images(imageid):
+def get_images(image_id):
     cursor = mysql.connection.cursor()
     cursor.execute("SELECT image_data FROM photohub.images WHERE id = %s", (image_id,))
     image_data = cursor.fetchone()
 
     if image_data:
-        return base64.b64encode(image_data[0]).decode('utf-8')
+        image_type = imghdr.what(None, h=image_data[0])
+        if image_type:
+            # content type based on image type
+            content_type = f'image/{image_type}'
+            return send_file(io.BytesIO(image_data[0]), mimetype=content_type)
+        else:
+            return 'Unknown image type'
     else:
         return 'Image not found'
 
