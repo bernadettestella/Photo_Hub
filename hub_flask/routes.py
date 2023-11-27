@@ -42,7 +42,7 @@ def photographs_posts():
     return render_template('the page jude is using')
 
 # Route to handle a new photographer sign up
-@app.route('/photographers_signin', strict_slashes=False)
+@app.route('/photographers_signin', methods=['GET', 'POST'], strict_slashes=False)
 def photographer_signup():
     if request.method == 'POST':
         # Extracts the sign up form data
