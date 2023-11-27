@@ -82,7 +82,7 @@ def photographer_signup():
 # Route to handle successful sign up and render login page
 @app.route('/signup_login', strict_slashes=False)
 def new_login():
-	return render_template('login.hmtl')
+	return render_template('login.html')
 
 # Route to handle existing photographer login
 @app.route('/photographer_login', strict_slashes=False)
