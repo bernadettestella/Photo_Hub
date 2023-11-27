@@ -10,16 +10,22 @@
   <div class="dashboard">
     <div class="options">
       <a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
-      <form method="POST" action="/upload" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/*">
-        <button type="submit">Upload Image</button>
-      </form>
     </div>
-    <div class="image-container">
-      {% for image_id, content_type in images %}
-        <img src="{{ url_for('get_images', image_id=image_id) }}" alt="Photograph">
-      {% endfor %}
-    </div>
+    {% for category_id, category_data in category_images.items() %}
+      <div class="category-container">
+        <h2>{{ category_data['category_name'] }}</h2>
+        <form method="POST" action="/upload" enctype="multipart/form-data">
+          <input type="hidden" name="category" value="{{ category_id }}">
+          <input type="file" name="file" accept="image/*">
+          <button type="submit">Upload Image</button>
+        </form>
+        <div class="image-container">
+          {% for image_id, content_type in category_data['images'] %}
+            <img src="{{ url_for('get_images', image_id=image_id) }}" alt="Photograph">
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
   </div>
 </body>
 </html>
