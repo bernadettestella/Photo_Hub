@@ -54,10 +54,13 @@ def photographer_signup():
         location = request.form['location']
         preferred_username = request.form['preferred_username']
         raw_password = request.form['password']  # Get the raw password from the form
+        confirm_password = request.form['confirm_password']
 
+	if raw_password != confirm_password:
+            return "Passwords do not match. Please try again."
         # Hash the raw password before storing it
         hashed_password = generate_password_hash(raw_password)
-
+        
         # Creating  a new Photographer instance with hashed password
         new_photographer = Photographer(
             first_name=first_name,
