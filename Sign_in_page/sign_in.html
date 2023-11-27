@@ -34,50 +34,39 @@
 <body>
   <h2>Would you like to join us?</h2>
 
-  <form action="">
-    <label for="">First Name</label> <br>
+  <form action="/photographers_signin" method="POST">
+    <label for="first_name">First Name</label> <br>
+    <input type="text" id="first_name" name="first_name" placeholder="Enter your first name"> <br>
 
-    <input type="text" placeholder="Enter your first name"> <br>
+    <label for="surname">Surname</label> <br>
+    <input type="text" id="surname" name="surname" placeholder="Enter your surname"> <br>
 
-    <label for="">Surname</label> <br>
+    <label for="middle_name">Middle Name</label> <br>
+    <input type="text" id="middle_name" name="middle_name" placeholder="Enter your Middle Name"> <br>
 
-    <input type="text" placeholder="Enter your surname"> <br>
+    <label for="gender">Gender</label> <br>
+    <input type="radio" id="male" name="gender" value="Male"> Male
+    <input type="radio" id="female" name="gender" value="Female"> Female
+    <input type="radio" id="other" name="gender" value="Other"> Other <br>
 
-    <label for="">Middle Name</label> <br>
+    <label for="dob">Enter your date of birth</label> <br>
+    <input type="date" id="dob" name="dob"> <br>
 
-    <input type="text" placeholder="Enter your Middle Name"> <br>
+    <label for="location">Enter Location</label> <br>
+    <input type="text" id="location" name="location" placeholder="Enter your location"> <br>
 
-    <label for="">Gender</label> <br>
+    <label for="preferred_username">Enter Preferred Username</label> <br>
+    <input type="text" id="preferred_username" name="preferred_username" placeholder="Enter Username"> <br>
 
-    <input type="radio" name="gender"> Male
-    <input type="radio" name="gender"> Female
-    <input type="radio" name="gender"> Other <br>
+    <label for="password">Enter Password</label> <br>
+    <input type="password" id="password" name="password" placeholder="Enter Password"> <br>
 
-    <label for="">Enter your date of birth</label> <br>
+    <label for="confirm_password">Confirm Password</label> <br>
+    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password"> <br>
 
-    <input type="date"> <br>
+    <button class="sign-up" type="submit">Sign Up</button> <br>
 
-    <label for="">Enter Location</label> <br>
-
-    <input type="address"> <br>
-
-    <label for="">Enter Preffered Username</label> <br>
-
-    <input type="text" placeholder="Enter Username"> <br>
-
-    <label for="">Enter Password</label> <br>
-
-    <input type="password" placeholder="Enter Password"> <br>
-
-    <label for="">Confirm Password</label> <br>
-
-    <input type="password" placeholder="Confirm Password"> <br>
-
-    <button class="sign-up">Sign Up</button> <br>
-
-    <p>Already have an account?</p> <br>
-
-    <button class="log-in">Login</button>
+    <p>Already have an account? <a href="/photographer_login" class="log-in">Login</a></p>
   </form>
 </body>
 </html>
