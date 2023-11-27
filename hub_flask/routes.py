@@ -44,6 +44,39 @@ def photographs_posts():
 # Route to handle a new photographer sign up
 @app.route('/photographers_signin', strict_slashes=False)
 def photographer_signup():
+    if request.method == 'POST':
+        # Extracts the sign up form data
+        first_name = request.form['first_name']
+        surname = request.form['surname']
+        middle_name = request.form['middle_name']
+        gender = request.form['gender']
+        dob = request.form['dob']
+        location = request.form['location']
+        preferred_username = request.form['preferred_username']
+        raw_password = request.form['password']  # Get the raw password from the form
+
+        # Hash the raw password before storing it
+        hashed_password = generate_password_hash(raw_password)
+
+        # Creating  a new Photographer instance with hashed password
+        new_photographer = Photographer(
+            first_name=first_name,
+            surname=surname,
+            middle_name=middle_name,
+            gender=gender,
+            dob=dob,
+            location=location,
+            preferred_username=preferred_username,
+            password=hashed_password  # Store the hashed password in the database
+        )
+
+        # Adds the new photographer to the session and commit to the database
+        db.session.add(new_photographer)
+        db.session.commit()
+
+        # Redirect to login page after successful signup
+        return render_template('login.html')
+    
     return render_template('sign_in.html')
 
 # Route to handle successful sign up and render login page
