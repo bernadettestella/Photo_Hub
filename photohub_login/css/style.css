@@ -13,13 +13,13 @@
 			background-position: center;
     }
 
-    .login-container {
+    .login-container { 
       width: 300px;
       padding: 20px;
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+    
 
     .header {
       text-align: center;
@@ -48,7 +48,7 @@
       border-radius: 4px;
     }
 
-    .login-button {
+    .button-link {
       background-color: #4caf50;
       color: #fff;
       padding: 10px;
@@ -58,6 +58,6 @@
       width: 100%;
     }
 
-    .login-button:hover {
+    .button-link:hover {
       background-color: #45a049;
     }
