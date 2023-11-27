@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Photographer Profiles</title>
-</head>
-<body>
-  <h2>Please Create Your Profile Here For Better Visibility</h2>
-  <form action="C:\Users\PC\Photo Hub\Photo_Hub-1\Profile_Creation\profile.html" method="post">
-    <label for="">First Name</label> <br>
-    <input type="text" placeholder="Enter your First Name" required> <br>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Photographer Profiles</title>
+		<style>
+		.button-link {
+			display: inline-block;
+			padding: 10px 20px;
+			text-align: center;
+			text-decoration: none;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+		}
 
-    <label for="">Last Name</label> <br>
-    <input type="text" placeholder="Enter Your Last Name" required> <br>
+		.button-link:hover {
+			background-color: #45a049;
+		}
+		</style
+	</head>
+	<body>
+		<h2>Please Create Your Profile Here For Better Visibility</h2>
+		<form action="/create_profile" method="post">
+			<label for="first_name">First Name</label> <br>
+			<input type="text" name="first_name" placeholder="Enter your First Name" required> <br>
 
-    <label for="">UserName</label> <br>
-    <input type="text" placeholder="Enter your username" required> <br>
+			<label for="last_name">Last Name</label> <br>
+			<input type="text" name="last_name" placeholder="Enter Your Last Name" required> <br>
 
-    <label for="">Email</label> <br>
-    <input type="email" placeholder="Enter Your Email"> <br>
+			<label for="username">Username</label> <br>
+			<input type="text" name="username" placeholder="Enter your username" required> <br>
 
-    <label for="">Phone Number</label> <br>
-    <input type="tel" placeholder="Enter your phone number" required> <br>
+			<label for="email">Email</label> <br>
+			<input type="email" name="email" placeholder="Enter Your Email" required> <br>
 
-    <label for="">Location</label> <br>
-    <input type="text" placeholder="Enter Your Location" required> <br>    
+			<label for="phone_number">Phone Number</label> <br>
+			<input type="tel" name="phone_number" placeholder="Enter your phone number" required> <br>
 
-    <input type="button"
-<a href="C:\Users\PC\Photo Hub\Photo_Hub-1\database_images\templates\load_upload_images.html></a> value="Create Profile">
-  </form>
-</body>
+			<label for="location">Location</label> <br>
+			<input type="text" name="location" placeholder="Enter Your Location" required> <br>
+
+			<input type="submit" value="Create Profile">
+		</form>
+		<a href="../database_images/templates/load_upload_images.html" class="button-link">Create your image portfolio</a>
+
+	</body>
 </html>

@@ -7,11 +7,17 @@
 </head>
 <body>
     <h1>Profiles</h1>
-    <ul>
-        {% for profile in profiles %}
-            <li>{{ profile.name }} - {{ profile.age }} years old - Email: {{ profile.email }}</li>
-        {% endfor %}
-    </ul>
-    <a href="C:\Users\PC\Photo Hub\Photo_Hub-1\Profile_Creation\profile.html">Create a new profile</a>
+
+    {% if profiles %}
+        <ul>
+            {% for profile in profiles %}
+                <li>{{ profile.first_name }} - Email: {{ profile.email }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No profiles found.</p>
+    {% endif %}
+
+    <a href="{{ url_for('create_profile') }}">Create a new profile</a>
 </body>
 </html>
