@@ -1,8 +1,15 @@
+#!/usr/bin/python3
 from flask import Flask, render_template, request, redirect, url_for
+from flask_mysqldb import MySQL
 
 app = Flask(__name__)
 
-Photo_Hub = []
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'Raelynn@2017'
+app.config['MYSQL_DATABASE_DB'] = 'photo_hub'
+
+mysql = MySQL(app)
 
 @app.route('/')
 def index():

@@ -4,25 +4,31 @@ starts a Flask web application
 """
 
 from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
+from flask_mysqldb import MYSQL
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://your_username:your_password@your_host/your_database_name'
-db = SQLAlchemy(app)
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_USER'] = 'root'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'Raelynn@2017'
+app.config['MYSQL_DATABASE_DB'] = photo_hub
+
+mysql = MYSQL(app)
 
 # Define a Photographer class to represent the photographers table
 class Photographer(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(100))
     surname = db.Column(db.String(100))
     middle_name = db.Column(db.String(100))
     gender = db.Column(db.String(10))
-    dob = db.Column(db.Date())
+    date_of_birth = db.Column(db.Date())
     location = db.Column(db.String(100))
-    preferred_username = db.Column(db.String(100))
+    username = db.Column(db.String(100))
     password = db.Column(db.String(100))
+    email = db.Column(db.String(100))
+    phone = db.Column(db.Integer)
     
 
 """defining routes to various pages of the hub website"""
