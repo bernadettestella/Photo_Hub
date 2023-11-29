@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PhotoHub</title>
+  <link href="{{ url_for('static', filename='css/landing.css') }}" rel="stylesheet"/>
+</head>
+<body>
+  <div class="land">
+    <main>
+      <b><h1>PhotoHub</h1><b>
+      <p class="slogan">
+        Photography Now!
+      </p>
+      <p class="welcome">
+        Welcome to PhotoHub<br>Your best photography experience!
+      <p>
+      <div class="selection-buttons">
+        <a href="{{ url_for('photographers_signup') }}" class="Photographers">Photographer Signup</a><br>
+        <a href="{{ url_for('photographer_login') }}" class="login-button">Login</a>
+      </div>
+      <div class="about">
+        <h3>About PhotoHub</h3>
+        <p>
+          PhotoHub is the place where you will get photographers for all events under one roof.<br>Its is all about art with confidence of the work and the skills you will choose.<br>Karibu PhotoHub!
+        </p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

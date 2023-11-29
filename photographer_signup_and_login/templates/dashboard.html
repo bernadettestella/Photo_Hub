@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/load_upload_images.css') }}">
+		<title>Photographer Dashboard</title>
+	</head>
+	<body>
+		<div class="dashboard">
+			<div class="options">
+				<a href="{{ url_for('logout') }}" class="logout-button">Logout</a>
+			</div>
+			{% for category_id, category_data in category_images.items() %}
+			<div class="category-container">
+				<h2>{{ category_data['category_name'] }}</h2>
+				<form method="POST" action="/upload" enctype="multipart/form-data">
+					<input type="hidden" name="category" value="{{ category_id }}">
+					<input type="file" name="file" accept="image/*">
+					<button type="submit">Upload Image</button>
+				</form>
+				<div class="image-container">
+					{% for image_data in category_data['images'] %}
+					<img src="{{ url_for('get_image', image_id=image_data.id) }}" alt="Photograph">
+					{% endfor %}
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</body>
+</html>
