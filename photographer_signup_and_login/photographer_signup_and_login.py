@@ -156,7 +156,7 @@ def dashboard():
     for category in categories:
         category_images[category.id] = {
                 "category_name": category.name,
-                "images": Image.query.filter_by(category_id=category.id).all(),
+                "images": Image.query.filter_by(category_id=category.id, user_id=current_user.id).all(),
                 }
 
     return render_template(
