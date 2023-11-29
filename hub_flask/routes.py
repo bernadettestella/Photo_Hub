@@ -3,7 +3,7 @@
 starts a Flask web application
 """
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -119,6 +119,8 @@ def photographer_login():
 
         if user and check_password_hash(user.password, password):
             # Successful login
+            session['logged_in_photographer'] = True
+            session['photographer_id'] = user.user_id
             return render_template('load_upload_images.html')
 
     return render_template('login.html')
