@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+    <title>Sign Up</title>
+</head>
+<body>
+    <h2>Would you like to join us?</h2>
+
+    <form action="{{ url_for('photographers_signup') }}" method="POST">
+        {{ form.hidden_tag() }}
+
+        <label for="{{ form.preferred_username.id }}">{{ form.preferred_username.label }}</label>
+        {{ form.preferred_username(class="form-control", placeholder="Enter Username") }}
+
+        <label for="{{ form.email.id }}">{{ form.email.label }}</label>
+        {{ form.email(class="form-control", placeholder="Enter Email") }}
+
+        <label for="{{ form.password.id }}">{{ form.password.label }}</label>
+        {{ form.password(class="form-control", placeholder="Enter Password") }}
+
+        <label for="{{ form.confirm_password.id }}">{{ form.confirm_password.label }}</label>
+        {{ form.confirm_password(class="form-control", placeholder="Confirm Password") }}
+
+        <button class="sign-up" type="submit">Sign Up</button>
+
+        <p>Already have an account? <a href="{{ url_for('photographer_login') }}" class="log-in">Login</a></p>
+    </form>
+</body>
+</html>

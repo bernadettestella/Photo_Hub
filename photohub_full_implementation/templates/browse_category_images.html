@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Browse Category</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .image-container {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        img {
+            max-height: 250px;
+            object-fit: cover;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+    </style>
+    <!-- Add your stylesheets or scripts here -->
+</head>
+
+<body>
+    <h2>Photographers in {{ category }} Category</h2>
+    <ul>
+        {% for photographer in photographers %}
+            <li>
+                <a href="{{ url_for('photographer_profile', photographer_id=photographer.id) }}">
+                    {{ photographer.preferred_username }}
+                </a>
+                <div class="image-container">
+                    {% for image_data in photographer.category_images[category][:4] %}
+                        <img src="{{ url_for('get_image', image_id=image_data.id) }}" alt="Photograph">
+                    {% endfor %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

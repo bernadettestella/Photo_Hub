@@ -69,7 +69,7 @@
 <body>
   <h2>Would you like to join us?</h2>
 
-  <form action="/photographers_signin" method="POST">
+		<form action="{{ url_for('photographers_signup') }}" method="POST">
     <label for="first_name">First Name</label> <br>
     <input type="text" id="first_name" name="first_name" placeholder="Enter your first name"> <br>
 
@@ -100,8 +100,8 @@
     <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password"> <br>
 
     <button class="sign-up" type="submit">Sign Up</button> <br>
-    
-    <p>Already have an account? <a href="login.html" class="log-in">Login</a></p> 
+
+			<p>Already have an account? <a href="{{ url_for('login') }}" class="log-in">Login</a></p>
   </form>
 </body>
 </html>

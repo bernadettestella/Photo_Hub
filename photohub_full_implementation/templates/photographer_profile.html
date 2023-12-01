@@ -1,0 +1,27 @@
+<!-- photographer_profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <title>{{ photographer.preferred_username }} Profile</title>
+</head>
+<body>
+    <div class="dashboard">
+        <h2>{{ photographer.preferred_username }} Profile</h2>
+        <p>Email: {{ photographer.email }}</p>
+
+        {% for category_id, category_data in category_images.items() %}
+            <div class="category-container">
+                <h2>{{ category_data['category_name'] }}</h2>
+                <div class="image-container">
+                    {% for image_data in category_data['images'] %}
+                        <img src="{{ url_for('get_image', image_id=image_data.id) }}" alt="Photograph">
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
