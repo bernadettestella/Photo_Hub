@@ -1,3 +1,3 @@
-# PhotoHub
+<b># PhotoHub</b>
 ## Photography Now!!
 
