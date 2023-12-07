@@ -23,4 +23,4 @@ We hashed the passwords before storage to beef up security of the passwords.
 |----|-------------|-----------|
 |Jude Hunja|
 |Brian Kibugi|njugunabrian843@gmail.com|https://github.com/Kibugi1|
-|
+|Bernadette Waithiegeni|bernadettestella27@gmail.com|https://github.com/bernadettestella|
